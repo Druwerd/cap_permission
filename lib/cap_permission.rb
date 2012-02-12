@@ -1,16 +1,20 @@
 Capistrano::Configuration.instance(true).load do
-  set :group_name, nil
-  #set :admin_groups, ["sysadmins", "confmgmt"]
+  set :admin_groups, ["root", "sysadmins", "confmgmt"]
 
   def user_in_group?(group)
      return false if group.nil?
+     puts group
      user = ENV["SUDO_USER"]
      groups = capture("groups #{user}")
      groups.include?(" #{group} ")
   end
 
   def admin_user?()
-     user_in_group?("sysadmins") or user_in_group?("confmgmt")
+     puts admin_groups
+     admin_groups.each do |admin_group|
+       return true if user_in_group?(admin_group)
+     end
+     return false
   end
   
   namespace :permission do
