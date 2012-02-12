@@ -21,7 +21,11 @@ Capistrano::Configuration.instance(true).load do
         end
      end
   end
-  
-  on :start, "permission:check"
+
+  if Gem.available?('capistrano-ext')
+    after "multistage:ensure", "permission:check"
+  else
+    on :start, "permission:check"
+  end
 
 end
