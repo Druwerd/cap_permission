@@ -1,6 +1,6 @@
 = cap_permission
 
-Description goes here.
+Adds group based permissions to Capistrano tasks.
 
 == Installation
 
