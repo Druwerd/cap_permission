@@ -2,7 +2,7 @@
 
 Description goes here.
 
-== Installatin
+== Installation
 
     $ gem install cap_permission
     
