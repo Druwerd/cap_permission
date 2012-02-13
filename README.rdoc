@@ -2,6 +2,14 @@
 
 Description goes here.
 
+== Installatin
+
+    $ gem install cap_permission
+    
+Include in your Capfile
+    require 'rubygems'
+    require 'cap_permission'
+
 == Contributing to cap_permission
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
