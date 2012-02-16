@@ -9,6 +9,14 @@ Adds group based permissions to Capistrano tasks.
 Include in your Capfile
     require 'rubygems'
     require 'cap_permission'
+    
+== Usage
+
+Permission by group:
+    set :group_name, "releasemgmt"   # allows users in 'releasemgmt' group to run cap tasks
+    
+Permission by users:
+    set :deployment_users, ["leeroy", "jenkins"]  # allows user 'leeroy' and user 'jenkins' to run cap tasks
 
 == Contributing to cap_permission
  
