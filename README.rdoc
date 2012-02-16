@@ -14,6 +14,7 @@ Include in your Capfile
 
 Permission by group:
     set :group_name, "releasemgmt"   # allows users in 'releasemgmt' group to run cap tasks
+Note: Users in "root", "sysadmins", and "confmgmt" groups are granted rights by default
     
 Permission by users:
     set :deployment_users, ["leeroy", "jenkins"]  # allows user 'leeroy' and user 'jenkins' to run cap tasks
