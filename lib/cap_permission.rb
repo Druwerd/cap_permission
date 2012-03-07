@@ -4,6 +4,10 @@ Capistrano::Configuration.instance(true).load do
   def user_in_group?(group)
      return false if group.nil?
      user = ENV["SUDO_USER"]
+     if user.nil?
+       puts "\e[0;33m WARNING: 'cap_permission' gem requires you to run cap with sudo\e[0m"
+       return false
+     end
      groups = capture("groups #{user}")
      groups.include?(" #{group} ")
   end
@@ -13,11 +17,17 @@ Capistrano::Configuration.instance(true).load do
        return true if user_in_group?(admin_group)
      end
      return false
+  rescue NameError => e
+     puts "\e[0;33m WARNING: #{e}\e[0m"
+     false
   end
   
   def deployment_user?()
-     user = EVN["SUDO_USER"]
+     user = ENV["SUDO_USER"]
      deployment_users.to_a.include?(user)
+  rescue NameError => e
+     puts "\e[0;33m WARNING: #{e}\e[0m"
+     false
   end
   
   namespace :permission do
@@ -34,5 +44,5 @@ Capistrano::Configuration.instance(true).load do
   else
     on :start, "permission:check"
   end
-
+  
 end
