@@ -3,14 +3,12 @@ Capistrano::Configuration.instance(true).load do
 
   def user_in_group?(group)
      return false if group.nil?
-     puts group
      user = ENV["SUDO_USER"]
      groups = capture("groups #{user}")
      groups.include?(" #{group} ")
   end
 
   def admin_user?()
-     puts admin_groups
      admin_groups.each do |admin_group|
        return true if user_in_group?(admin_group)
      end
