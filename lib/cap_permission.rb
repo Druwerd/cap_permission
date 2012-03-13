@@ -9,6 +9,7 @@ Capistrano::Configuration.instance(true).load do
        return false
      end
      groups = capture("groups #{user}")
+     puts "DEBUG: #{user} belongs to #{groups}"
      groups.include?(" #{group} ")
   end
 
