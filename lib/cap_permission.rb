@@ -8,9 +8,9 @@ Capistrano::Configuration.instance(true).load do
        puts "\e[0;33m WARNING: 'cap_permission' gem requires you to run cap with sudo\e[0m"
        return false
      end
-     groups = capture("groups #{user}")
-     puts "DEBUG: #{user} belongs to #{groups}"
-     groups.include?(" #{group} ")
+     groups = capture("groups #{user}").split
+     puts "DEBUG: #{user} belongs to #{groups.join(" ")}"
+     groups.include?(group)
   end
 
   def admin_user?()
