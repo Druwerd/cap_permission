@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cap_permission}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Dru Ibarra}]
-  s.date = %q{2012-03-07}
+  s.date = %q{2012-03-13}
   s.description = %q{adds group based permissions to Capistrano tasks}
   s.email = %q{Druwerd@gmail.com}
   s.extra_rdoc_files = [
